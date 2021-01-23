@@ -1,0 +1,54 @@
+
+
+<ion-header>
+    <ion-toolbar color="danger">
+        <ion-title>
+           Add new address
+        </ion-title>
+        <ion-button fill="clear" size="small" slot="end" routerLink= "" >
+            <ion-icon color="light" name="close"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+
+            <ion-back-button>
+
+            </ion-back-button>
+
+          
+        </ion-buttons>
+        <ion-title>Search For Address</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-searchbar (input)="search($event)" (change)="addressCheck($event)" [value]="selectedAddress"></ion-searchbar>
+    <ion-item   *ngFor="let address of addresses ; let i=index" (click)="onSelect(address, i)">
+
+        {{ address }}
+
+    </ion-item>
+  
+    <ion-item *ngIf="clicked">
+        <ion-button  expand = "full" (click) = "saveAddress()">
+            saveAddress
+        </ion-button>
+    </ion-item>
+<div id='map' style='width: 100%; height: 100%;'></div>
+    
+</ion-content>
+
+
+
+   <!-- <div #map id="map" style='width: 100%; height: 100%;'>
+
+    
+</div>    <div id="instructions"></div> -->
+
+    

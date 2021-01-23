@@ -1,0 +1,44 @@
+ion-content {
+   --background: linear-gradient(90deg, rgba(43,90,148,1) 0%,
+    rgba(45,112,229,1) 35%, rgba(45,112,229,1) 100%);
+      padding: 0;
+  }
+  .slides {
+    background: #75c1fc;
+//    padding: 4px 10px 20px 10px;
+    border-radius: 0 0 28px 28px;
+  }
+
+  img {
+    background: #b1cee4;
+    width: 300px;
+    height: 150px;
+   // padding: 10px 10px 10px 10px;
+  //  border-radius: 28px 28px 28px 28px;
+  }
+
+  ion-card {
+
+    --width: 100%;
+    padding: 0;
+   // --width: 400px;
+    --box-shadow: none;
+   --border-radius: 14px;
+   background-color: darkgoldenrod;
+    //border-color: rgb(107, 248, 25);
+   // --border-radius: 14px;
+    //padding: 14px;
+    //border-radius: 0 0 28px 28px;
+//    background: rgba(255,255,255,.8);
+// border-radius: 50px;
+    //align-items: center;
+    justify-content: center;    
+    
+  }
+
+  .partco{
+    width: 50%;
+    padding: 0%;
+    margin: 0%;
+  }
+  

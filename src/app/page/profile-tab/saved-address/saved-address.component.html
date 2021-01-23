@@ -1,0 +1,52 @@
+
+ 
+
+
+
+
+<ion-card *ngFor = "let address of myBookList"> 
+  <ion-card-header>
+    <ion-card-subtitle>
+      <ion-row class="ion-justify-content-between">
+        <ion-col size="11">
+          <div>
+           {{ address.name}} 
+          </div>
+          <ion-label>
+          <ion-label displayFormat = "DDD DD MMM YYYY - hh:mm:A" value = "address.createdDate" >
+               {{  address.createdDate | date  }}
+          </ion-label>
+        </ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <div>
+            <ion-icon color="primary" name="create" style="padding-top: 4px;"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <div class="flex">
+      <ion-icon color="primary" name="pin" style="padding-top: 4px;"></ion-icon>
+      <ion-label style="max-width: 250px;" class="ion-margin-start">{{ address.address}}
+      </ion-label>
+    </div>
+    
+    <ion-row class="ion-justify-content-end">
+      <ion-col size="5" color = "danger">
+        <div class="ion-text-end"  >
+          <ion-button  fill="outline" size="small" (click)= "delete(address)" >Delete</ion-button>
+        </div>
+      </ion-col>
+      <!-- <ion-col size="5">
+        <div class="ion-text-end"  >
+          <ion-button fill="outline" size="small" >Make Default</ion-button>
+        </div>
+      </ion-col> -->
+
+    </ion-row>
+  </ion-card-content>
+ 
+</ion-card>
+

@@ -1,0 +1,19 @@
+<ion-tabs>
+    <ion-tab-bar slot="bottom" color="primary">
+        <ion-tab-button tab="home">
+            <ion-icon name="grid"></ion-icon>
+            <ion-label>Menu</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button  tab="cartview">
+            <ion-badge> {{ cartItemCount | async }}</ion-badge>
+            <ion-icon name="cart"></ion-icon>
+            <ion-label>Cart</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="profile-tab">
+            <ion-icon name="person"></ion-icon>
+            <ion-label>Profile</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-tabs>

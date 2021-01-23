@@ -1,0 +1,117 @@
+
+
+<ion-card *ngFor = "let order of order">
+  <ion-card-header>
+    <ion-card-subtitle>
+      <ion-label>
+        {{ order.createdDate }}
+      </ion-label>
+      <div class="ion-text-end"  >
+        <ion-button  fill="outline" size="small" (click)= "delete(order)" >Delete</ion-button>
+      </div>
+    </ion-card-subtitle>
+    <ion-col size="5" color = "danger">
+      {{order.address}}
+      <div class="ion-text-end"  >
+        {{order.payment}}
+      </div>
+    </ion-col>
+    <ion-card-title>
+      <ion-row class="ion-justify-content-between">
+        <ion-col size="6">
+          <div class="flex-item-center">
+            <ion-icon name="checkmark" color="primary"></ion-icon>
+            <span class="small-gap"></span>
+            <ion-label color="primary">Pending</ion-label>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="ion-text-end">
+            <span style="opacity: 0.8;">{{ order.total | currency: 'R'}}</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content *ngIf = "order.cart">
+
+    <div class="flex-item-center" *ngFor = "let item of order.cart">
+      <div >{{ item.userID}} 
+      
+      <span class="small-gap"> </span>
+    
+    <div class="small-vertical-height"></div>
+    <div class="flex-item-center">
+      <div>  {{ item.price | currency: 'R' }}  {{ item.price * item.qty  | currency: 'R'}}</div></div>
+      <span class="small-gap"></span>
+      <div> {{ item.name }}  </div>
+
+    </div></div>
+    <div class="small-vertical-height"></div>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6">
+        <div>
+          <ion-button expand="block" fill="outline" color="primary">View Receipt</ion-button>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div>
+          <ion-button expand="full" fill="solid" color="primary">Reorder</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+<!-- <ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>
+      <ion-label>
+        26 Jan, 2019 8:00PM
+      </ion-label>
+    </ion-card-subtitle>
+    <ion-card-title>
+      <ion-row class="ion-justify-content-between">
+        <ion-col size="6">
+          <div class="flex-item-center">
+            <ion-icon name="checkmark" color="success"></ion-icon>
+            <span class="small-gap"></span>
+            <ion-label color="success">Delivered</ion-label>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="ion-text-end">
+            <span style="opacity: 0.8;">{{350 | currency: 'INR'}}</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <div class="flex-item-center">
+      <div>[1]</div>
+      <span class="small-gap"></span>
+      <div>Veg Schezwan Fried Rice</div>
+    </div>
+    <div class="small-vertical-height"></div>
+    <div class="flex-item-center">
+      <div>[4]</div>
+      <span class="small-gap"></span>
+      <div>Veg Schezwan Fried Rice</div>
+    </div>
+    <div class="small-vertical-height"></div>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6">
+        <div>
+          <ion-button expand="block" fill="outline" color="primary">View Receipt</ion-button>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div>
+          <ion-button expand="full" fill="solid" color="primary">Reorder</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card> -->

@@ -1,0 +1,12 @@
+<ion-menu  side="start" type="push" contentId="main" >
+    <ion-content>
+        <div *ngFor='let path of pathsList' >
+            <ion-item (click)='moveToPath(path)' detail  color ="primary">
+                <ion-icon [name]='path.icon'></ion-icon>
+                
+                <ion-label style='margin-left: 10px;'>{{path.name}}</ion-label>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>

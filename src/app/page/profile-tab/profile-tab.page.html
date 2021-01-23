@@ -1,0 +1,144 @@
+<ion-header class="ion-text-center">
+    <ion-toolbar color="primary" class="full-height flex-middle">
+        <ion-buttons slot="start">
+            <ion-menu-button>
+
+            </ion-menu-button>
+        </ion-buttons>
+
+        <ion-title>Profile</ion-title>
+        <ion-buttons slot="end">
+            <ion-button type="submit"  (click)= "logout()" expand="block">
+                <ion-icon name="log-out"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-item *ngIf= "!loggedIn"  class = "bg-transparent">
+    <ion-segment (ionChange)= "segmentChanged($event)" color="primary">
+        <ion-segment-button value="login"  selecteSegment = "value">
+            <ion-label>Login</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="signup"  selecteSegment = "value" >
+            <ion-label>Signup</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+</ion-item>
+<ion-item *ngIf= "loggedIn" class = "bg-transparent">
+<ion-segment (ionChange)= "segmentChanged($event)" color="primary">
+    <ion-segment-button value="myprofile" selecteSegment = "value" >
+        <ion-label>Profile</ion-label >
+    </ion-segment-button>
+    <ion-segment-button value="orders" selecteSegment = "value" >
+        <ion-label>Orders</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="address" selecteSegment = "value" >
+        <ion-label>Address</ion-label>
+    </ion-segment-button>
+</ion-segment>
+
+</ion-item>
+
+<!-- <ion-card  *ngIf= "selectedSegment === 'address'" class = "bg-transparent">
+    
+    <ion-fab *ngIf="!addlocation"  horizontal= "center" >
+        <ion-fab-button (click)= "add()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+  
+      <ion-searchbar *ngIf="addlocation" (input)="search($event)" (change)= " addressCheck($event)" [value]="selectedAddress"></ion-searchbar>
+      
+      
+      <ion-item *ngFor="let address of addresses ; let i=index" (click)= "onSelect(address, i)">
+      
+          {{ address}}
+      </ion-item>
+  
+      <ion-grid>
+          <ion-row>
+              <ion-col >
+                   <ion-button (click)= "addloc()">Adde New
+                         <ion-icon name="add"></ion-icon>
+                    </ion-button> 
+                </ion-col>
+              <ion-col> 
+                <ion-button (click)= "addloc()">Cancel
+                    <ion-icon name="cancel"></ion-icon>
+               </ion-button> 
+              </ion-col>
+              <ion-col> 
+                <ion-button (click)= "addloc()">Add from map
+                    <ion-icon name="pin"></ion-icon>
+               </ion-button> 
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+    
+    </ion-card> -->
+   
+
+
+<ion-content *ngIf= "!loggedIn"  class="bg-transparent">
+    <app-login *ngIf="selectedSegment === 'login'"></app-login>
+    <app-signup *ngIf="selectedSegment === 'signup'"></app-signup>
+</ion-content>
+
+<ion-content *ngIf= "loggedIn"  class="bg-transparent">
+     <app-my-profile  *ngIf="selectedSegment === 'myprofile'"> </app-my-profile>
+    <app-orders-history *ngIf="selectedSegment === 'orders'"> </app-orders-history>
+    <app-saved-address *ngIf="selectedSegment === 'address'" > </app-saved-address> 
+
+
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="selectedSegment === 'address'">
+        <ion-fab-button (click)= "addaddress()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+
+    
+</ion-content>
+
+  
+
+
+<!-- 
+    <ion-content>
+    <div *ngIf= "!loggedIn">
+        <ion-segment (ionChange)= "segmentChanged($event)" color="primary">
+            <ion-segment-button value="login" [checked]="selectedSegment === 'login'">
+                <ion-label>Login</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="signup" [checked]="selectedSegment === 'signup'">
+                <ion-label>Signup</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+        <app-login *ngIf="selectedSegment === 'login'"></app-login>
+        <app-signup *ngIf="selectedSegment === 'signup'"></app-signup>
+    </div>
+    <div *ngIf= "loggedIn">
+        <ion-segment (ionChange)="segmentChanged($event)" color="primary">
+            <ion-segment-button value="myprofile" [checked]="selectedSegment === 'myprofile'">
+                <ion-label>Profile</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="orders" [checked]="selectedSegment === 'orders'">
+                <ion-label>Orders</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="address" [checked]="selectedSegment === 'address'">
+                <ion-label>Address</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+        <app-my-profile *ngIf="selectedSegment === 'myprofile'"></app-my-profile>
+        <app-orders-history *ngIf="selectedSegment === 'orders'"></app-orders-history>
+        <app-saved-address *ngIf="selectedSegment === 'address'"></app-saved-address>
+    </div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="selectedSegment === 'address'">
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content> -->

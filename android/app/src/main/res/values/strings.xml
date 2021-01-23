@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ionicShoppingCart</string>
+    <string name="title_activity_main">ionicShoppingCart</string>
+    <string name="package_name">com.truxton.partco</string>
+    <string name="custom_url_scheme">com.truxton.partco</string>
+</resources>
