@@ -19,10 +19,11 @@ import { ContactPage } from './page/contact/contact.page';
 @NgModule({
   declarations: [AppComponent, SidemenuPage, TabsPage,ContactPage],
   entryComponents: [],
+  exports: [
+    FormsModule, ReactiveFormsModule,
+  ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),   AngularFirestoreModule.enablePersistence(),   
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule.enablePersistence(), 
     AngularFireAuthModule, FormsModule, ReactiveFormsModule,
     
     //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

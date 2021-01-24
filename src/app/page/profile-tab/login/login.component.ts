@@ -1,74 +1,72 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { FormsModule, FormBuilder,FormControl, ReactiveFormsModule, FormGroup, Validators } from "@angular/forms";
 import { AlertController, ModalController, ToastController,LoadingController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;
-  public loginInvalid: boolean;
-  private formSubmitAttempt: boolean;
-  private returnUrl: string;
-  login = {} as Login;
+  signInForm: FormGroup;
+  submitError: string;
+  authRedirectResult: Subscription;
 
-  constructor(private authDao: AuthenticationService,
-    private router: Router,
-    private fb: FormBuilder,
-    public loadingCtrl: LoadingController,) { }
-    
-    async ngOnInit() {
+  validation_messages = {
+    'email': [
+      { type: 'required', message: 'Email is required.' },
+      { type: 'pattern', message: 'Enter a valid email.' }
+    ],
+    'password': [
+      { type: 'required', message: 'Password is required.' },
+      { type: 'minlength', message: 'Password must be at least 6 characters long.' }
+    ]
+  };
 
-      this.form = this.fb.group({
-        username: ['', Validators.email],
-        password: ['', Validators.required]
-      });
-  
-    }
-      logIn(email, password) {
-  
-     this.authDao.SignIn(email.value, password.value)
-      .then((res) => {
-          this.presentLoading();
-        this.router.navigate(['profile-tab']); 
-      }).catch((error) => {
-        window.alert(error.message);
-      })
-  }
-  async onSubmit() {   
-      this.loginInvalid = false;
-      this.formSubmitAttempt = false;
-      if (this.form.valid) {
-        try {
-          const username = this.form.get('username').value;
-          const password = this.form.get('password').value;
-          this.presentLoading();
-          await this.authDao.SignIn(username, password);
-        } catch (err) {
-         
-          this.loginInvalid = true;
-        }
-      } else {
-        this.formSubmitAttempt = true;
-      }
-    }
-  googlesignin()
-  {
-    this.authDao.GoogleAuth();
-  }
-  async presentLoading() {
-    const loader = this.loadingCtrl.create({
-      message: "Signing in....",
-      duration: 5000
+  constructor(
+    public angularFire: AngularFireAuth,
+    public router: Router,
+    private ngZone: NgZone,
+    private authService: AuthenticationService
+  ) {
+    this.signInForm = new FormGroup({
+      'email': new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])),
+      'password': new FormControl('', Validators.compose([
+        Validators.minLength(6),
+        Validators.required
+      ]))
     });
-    (await loader).present();
-    
   }
+  ngOnInit(){
+
   }
- 
+  signInWithEmail() {
+    this.authService.SignIn(this.signInForm.value['email'], this.signInForm.value['password'])
+    .then(user => {
+      // navigate to user profile
+    })
+    .catch(error => {
+      this.submitError = error.message;
+    });
+  }
+
+  facebookSignIn() {
+   
+  }
+
+  googleSignIn() {
+   
+  }
+
+  twitterSignIn() {
+     }
+}
 
 
