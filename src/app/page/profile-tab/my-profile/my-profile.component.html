@@ -1,5 +1,65 @@
+<ion-content class="profile-content" *ngFor = "let user of userlist">
+  <ion-row class="user-details-wrapper">
+    <ion-col size="6" class="user-image-wrapper">
+      <img class="user-image" [src]="user.image">
+    </ion-col>
+    <ion-col class="user-info-wrapper" size="12">
+      <h3>{{user.name}}</h3>
+      <!-- <p> {{user.description}}</p> -->
+    </ion-col>
+  </ion-row>
 
-<ion-card style="align-items: center;" *ngFor = "let user of userlist">
+
+  
+  <ion-row>
+    
+    <ion-col size="12">
+      <h4>Name</h4>
+    
+      <p>  <ion-icon  color="primary"  name="person"></ion-icon>
+        {{user.name | uppercase}}
+      </p>
+    </ion-col>
+    <ion-col size="12">
+      <h4>Email</h4>
+
+      <p> <ion-icon  color="primary"  name="mail"></ion-icon>
+        {{user.email}}
+      </p>
+    </ion-col>
+
+    <ion-col size="12">
+      <h4>Mobile</h4>
+      <p>
+        <!-- {{user.phoneNumber}} -->
+      </p>
+    </ion-col>
+
+    <ion-col size="12">
+      <h4>Auth Provider</h4>
+      <p>
+        <!-- {{user.provider}} -->
+      </p>
+    </ion-col>
+    <ion-col size="12">
+      <ion-button expand="block" fill="outline" color="primary" (click)="signOut()">Sign out</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-card style="align-items: center;" *ngFor = "let user of userlist">
 
     <ion-item lines="none">
 
@@ -42,4 +102,4 @@
 </div>
 </ion-item>
 </ion-list>
-</ion-card>
+</ion-card> -->

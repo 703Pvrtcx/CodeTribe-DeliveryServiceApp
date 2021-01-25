@@ -3,15 +3,16 @@
 <ion-card *ngFor = "let order of order">
   <ion-card-header>
     <ion-card-subtitle>
-      <ion-label>
-        {{ order.createdDate }}
+      <ion-label displayFormat = "DDD DD MMM YYYY - hh:mm:A" value = "address.createdDate">
+        {{ order.createdDate | date}}
       </ion-label>
+    
       <div class="ion-text-end"  >
         <ion-button  fill="outline" size="small" (click)= "delete(order)" >Delete</ion-button>
       </div>
     </ion-card-subtitle>
     <ion-col size="5" color = "danger">
-      {{order.address}}
+      {{order.address }}
       <div class="ion-text-end"  >
         {{order.payment}}
       </div>
@@ -43,10 +44,10 @@
     
     <div class="small-vertical-height"></div>
     <div class="flex-item-center">
-      <div>  {{ item.price | currency: 'R' }}  {{ item.price * item.qty  | currency: 'R'}}</div></div>
-      <span class="small-gap"></span>
-      <div> {{ item.name }}  </div>
 
+      <div> {{ item.qty }}  x  {{ item.name }}   {{ item.price * item.qty  | currency: 'R'}} </div></div>
+      <span class="small-gap"></span>
+      <div></div>
     </div></div>
     <div class="small-vertical-height"></div>
     <ion-row class="ion-justify-content-center">

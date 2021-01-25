@@ -47,6 +47,8 @@ addlocation: boolean;
         } as UserInfo
       })
     });
+    console.log(userID)
+    console.log(this.userlist)
   }
 add(){
   this.addlocation = true;

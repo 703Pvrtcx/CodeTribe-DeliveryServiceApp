@@ -16,9 +16,9 @@
 </ion-header>
 
 
-<ion-item *ngIf= "!loggedIn"  class = "bg-transparent">
+<ion-item *ngIf= "!loggedIn"  color="primary">
     <ion-segment (ionChange)= "segmentChanged($event)" color="primary">
-        <ion-segment-button value="login"  selecteSegment = "value">
+        <ion-segment-button  value="login"  selecteSegment = "value">
             <ion-label>Login</ion-label>
         </ion-segment-button>
         <ion-segment-button value="signup"  selecteSegment = "value" >
@@ -26,9 +26,9 @@
         </ion-segment-button>
     </ion-segment>
 </ion-item>
-<ion-item *ngIf= "loggedIn" class = "bg-transparent">
+<ion-item *ngIf= "loggedIn" color="primary">
 <ion-segment (ionChange)= "segmentChanged($event)" color="primary">
-    <ion-segment-button value="myprofile" selecteSegment = "value" >
+    <ion-segment-button  value="myprofile" selecteSegment = "value" >
         <ion-label>Profile</ion-label >
     </ion-segment-button>
     <ion-segment-button value="orders" selecteSegment = "value" >
@@ -40,7 +40,7 @@
 </ion-segment>
 
 </ion-item>
-<ion-content *ngIf= "!loggedIn"  class="bg-transparent">
+<ion-content *ngIf= "!loggedIn"  color="primary">
     <app-login *ngIf="selectedSegment === 'login'"></app-login>
     <app-signup *ngIf="selectedSegment === 'signup'"></app-signup>
 </ion-content>
