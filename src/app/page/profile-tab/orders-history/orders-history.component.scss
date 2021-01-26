@@ -1,0 +1,29 @@
+ .user-item{
+      border-radius: 20px 20px 28px 28px;
+      opacity: 0.9;
+      --background: linear-gradient(90deg, rgb(31, 57, 88) 0%,
+      rgb(41, 62, 95) 35%, rgb(77, 137, 241) 100%);
+ 
+      --color: var(--ion-color-light);
+      
+   
+    }
+
+
+    
+.order-content {
+  --background: rgb(139, 135, 135) url('./../../../../assets/img/scones.jpg') no-repeat center center / cover;
+
+    --padding-bottom: 16px;
+    --padding-end: 16px;
+    --padding-start: 16px;
+    --padding-top: 16px;
+  
+    .user-item{
+      border-radius: 20px 20px 28px 28px;
+      opacity: 0.8;
+      --background: linear-gradient(90deg, rgb(31, 57, 88) 0%,
+      rgb(41, 62, 95) 35%, rgb(77, 137, 241) 100%);
+      --color: var(--ion-color-light);
+    }
+  }

@@ -1,6 +1,6 @@
 
 <ion-header [translucent]="true" color="danger">
-    <ion-toolbar color="primary">
+    <ion-toolbar color="dark">
         <ion-buttons slot="start" class="bg-transparent">
             <ion-menu-button>
                 <ion-icon name="apps"></ion-icon>
@@ -16,28 +16,28 @@
         </ion-button>
     </ion-toolbar>
 </ion-header>
-<ion-item color="primary">
-<ion-segment color="light" scrollable [value] = "icategory" (ionChange)= "onCategoryCategory($event)">
+<ion-item color="warning" >
+<ion-segment color="primary" scrollable [value] = "icategory" (ionChange)= "onCategoryCategory($event)">
     <ion-segment-button  *ngFor="let category of categories" [value]="category" >
         {{category}}
     </ion-segment-button>
 </ion-segment>
 </ion-item>
 
-<ion-content>
-  <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="openCart()" #cart>
+<ion-content color="dark" class="partcx">
+  <ion-fab vertical="top" horizontal="end" slot="fixed"  >
+    <ion-fab-button (click)="openCart()" #cart color="warning">
       <div class="cart-length">{{ cartItemCount | async }}</div>
       <ion-icon name="cart" class="cart-icon">{{ cartItemCount | async }}</ion-icon>
     </ion-fab-button>
   </ion-fab>
         <ion-grid >
-          <ion-row no-margin >
+          <ion-row  >
             <ion-col  size="6" *ngFor = "let p of result;" class="partco" >
-              <ion-card  color = "successs" > 
+              <ion-card   > 
                 <ion-row>
                   <ion-col size ="12" >
-                    <ion-label style="width: fit-content;"><strong color="dark"> {{ p.name }}</strong> </ion-label>
+                    <ion-label style="width: fit-content;"><strong > {{ p.name }}</strong> </ion-label>
                   </ion-col>
                 </ion-row>
 

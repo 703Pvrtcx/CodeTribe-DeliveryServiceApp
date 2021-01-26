@@ -1,10 +1,7 @@
-ion-content {
-    --background: linear-gradient(90deg, rgba(43,90,148,1) 0%,
-     rgba(45,112,229,1) 35%, rgba(45,112,229,1) 100%);
-       padding: 0;
-   }
 
 .sign-in-content {
+  --background: rgb(139, 135, 135) url('./../../../../assets/img/scones.jpg') no-repeat center center / cover;
+
     text-align: center;
     --padding-bottom: 16px;
     --padding-end: 16px;
@@ -16,6 +13,7 @@ ion-content {
       font-weight: bold;
       margin-bottom: 64px;
       letter-spacing: 0.6px;
+      color: var(--ion-color-light);
     }
   
     .social-auth-options {
@@ -25,13 +23,19 @@ ion-content {
     }
   
     .inputs-list {
-       
+      border-radius: 20px 20px 28px 28px;
+      opacity: 0.9;
+      --color: var(--ion-color-light);
       .input-item {
-        --padding-start: 0px;
+        --padding-start: 50px;
         --padding-end: 0px;
         --inner-padding-end: 0px;
-        --background: linear-gradient(90deg, rgba(43,90,148,1) 0%,
-        rgba(45,112,229,1) 35%, rgba(45,112,229,1) 100%);
+        opacity: 1;
+        --color: var(--ion-color-light);
+       // --background: rgb(139, 135, 135) url('./../../../../assets/img/scones.jpg') no-repeat center center / cover;
+        //opacity: 0.3;
+           --background: linear-gradient(90deg, rgb(31, 57, 88) 0%,
+        rgb(41, 62, 95) 35%, rgb(77, 137, 241) 100%);
       }
     }
   

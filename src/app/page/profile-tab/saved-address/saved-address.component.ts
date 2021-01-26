@@ -65,15 +65,12 @@ export class SavedAddressComponent implements OnInit {
       });
     }
  
-       
-    
   selectAddress(_address){
          this.order.address  = _address.name;
          window.alert(this.order.address);
     }
     delete(key){
       this.order.address  = key.name;
-      window.alert(this.order.address);
       this.asf.collection('UserAddress').doc(key.key).delete().then(()=>{
         alert("deleted");
       })

@@ -132,7 +132,6 @@ onSelectChanged(e) {
     this.orders.createdDate = this.now;
     this.orders.cart = this.cart;
 
-
     this.orderService.placeOrder(this.orders);
   //  this.presentLoading();
     this.checkout();

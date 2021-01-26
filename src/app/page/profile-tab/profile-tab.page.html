@@ -1,5 +1,5 @@
 <ion-header class="ion-text-center">
-    <ion-toolbar color="primary" class="full-height flex-middle">
+    <ion-toolbar color="dark" class="full-height flex-middle">
         <ion-buttons slot="start">
             <ion-menu-button>
 
@@ -16,9 +16,9 @@
 </ion-header>
 
 
-<ion-item *ngIf= "!loggedIn"  color="primary">
-    <ion-segment (ionChange)= "segmentChanged($event)" color="primary">
-        <ion-segment-button  value="login"  selecteSegment = "value">
+<ion-item *ngIf= "!loggedIn"  class = "bg-transparent" color="warning">
+    <ion-segment (ionChange)= "segmentChanged($event)" >
+        <ion-segment-button value="login"  selecteSegment = "value" color="dark">
             <ion-label>Login</ion-label>
         </ion-segment-button>
         <ion-segment-button value="signup"  selecteSegment = "value" >
@@ -26,9 +26,9 @@
         </ion-segment-button>
     </ion-segment>
 </ion-item>
-<ion-item *ngIf= "loggedIn" color="primary">
-<ion-segment (ionChange)= "segmentChanged($event)" color="primary">
-    <ion-segment-button  value="myprofile" selecteSegment = "value" >
+<ion-item *ngIf= "loggedIn" class = "bg-transparent" color="warning">
+<ion-segment (ionChange)= "segmentChanged($event)" >
+    <ion-segment-button value="myprofile" selecteSegment = "value" >
         <ion-label>Profile</ion-label >
     </ion-segment-button>
     <ion-segment-button value="orders" selecteSegment = "value" >
@@ -40,7 +40,9 @@
 </ion-segment>
 
 </ion-item>
-<ion-content *ngIf= "!loggedIn"  color="primary">
+
+
+<ion-content *ngIf= "!loggedIn"  class="bg-transparent">
     <app-login *ngIf="selectedSegment === 'login'"></app-login>
     <app-signup *ngIf="selectedSegment === 'signup'"></app-signup>
 </ion-content>
@@ -54,5 +56,8 @@
         <ion-fab-button (click)= "addaddress()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
-    </ion-fab>    
+    </ion-fab>
 </ion-content>
+
+  
+

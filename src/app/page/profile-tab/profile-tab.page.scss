@@ -3,9 +3,9 @@
 }
 
 ion-content {
-    --background: linear-gradient(90deg, rgba(43,90,148,1) 0%,
-     rgba(45,112,229,1) 35%, rgba(45,112,229,1) 100%);
-   }
+    --background: rgb(139, 135, 135) url('./../../../assets/img/scones.jpg') no-repeat center center / cover;
+}
+
 .item.item-trns {
     border-color: rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0);

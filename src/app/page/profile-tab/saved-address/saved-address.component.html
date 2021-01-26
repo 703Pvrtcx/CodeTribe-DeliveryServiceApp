@@ -1,52 +1,33 @@
 
- 
+<ion-card  class = "user-item">
+  <ion-list >
+      <ion-item *ngFor = "let address of myBookList" class = "user-item">
+        <ion-grid>
+            <ion-row color ="danger">
+                <ion-col size ="4">
+                  Address:
+                </ion-col>
+                <ion-col size ="8">
+                  {{ address.name}}
+                </ion-col>
+                <ion-col size ="4">
+                  Location:
+                </ion-col>
+                <ion-col size ="8">
+                  {{ address.address}}
+                </ion-col>
+                <ion-col size ="4">
+                  Date:
+                </ion-col>
+                <ion-col size ="8">
+                  {{  address.createdDate | date  }}
+                </ion-col> 
 
-
-
-
-<ion-card *ngFor = "let address of myBookList"> 
-  <ion-card-header>
-    <ion-card-subtitle>
-      <ion-row class="ion-justify-content-between">
-        <ion-col size="11">
-          <div>
-           {{ address.name}} 
-          </div>
-          <ion-label>
-          <ion-label displayFormat = "DDD DD MMM YYYY - hh:mm:A" value = "address.createdDate" >
-               {{  address.createdDate | date  }}
-          </ion-label>
-        </ion-label>
-        </ion-col>
-        <ion-col size="1">
-          <div>
-            <ion-icon color="primary" name="create" style="padding-top: 4px;"></ion-icon>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-card-subtitle>
-  </ion-card-header>
-  <ion-card-content>
-    <div class="flex">
-      <ion-icon color="primary" name="pin" style="padding-top: 4px;"></ion-icon>
-      <ion-label style="max-width: 250px;" class="ion-margin-start">{{ address.address}}
-      </ion-label>
-    </div>
-    
-    <ion-row class="ion-justify-content-end">
-      <ion-col size="5" color = "danger">
-        <div class="ion-text-end"  >
-          <ion-button  fill="outline" size="small" (click)= "delete(address)" >Delete</ion-button>
-        </div>
-      </ion-col>
-      <!-- <ion-col size="5">
-        <div class="ion-text-end"  >
-          <ion-button fill="outline" size="small" >Make Default</ion-button>
-        </div>
-      </ion-col> -->
-
-    </ion-row>
-  </ion-card-content>
- 
+                  <ion-col size = "12">
+                    <ion-button expand="block"  color="warning" fill="outline"  size="small" (click)= "delete(address)" >Delete</ion-button>
+                </ion-col>
+            </ion-row>
+          </ion-grid>   
+          </ion-item>
+  </ion-list>
 </ion-card>
-

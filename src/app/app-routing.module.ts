@@ -71,12 +71,7 @@ const routes: Routes = [
   {
     path: 'view-product',
     loadChildren: () => import('./page/view-product/view-product.module').then( m => m.ViewProductPageModule)
-  },  {
-    path: 'temp',
-    loadChildren: () => import('./page/temp/temp.module').then( m => m.TempPageModule)
   },
-
-
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
-<ion-menu  side="start" type="push" contentId="main" >
-    <ion-content>
+<ion-menu   side="start" type="push" contentId="main"  >
+    <ion-content >
         <div *ngFor='let path of pathsList' >
-            <ion-item (click)='moveToPath(path)' detail  color ="primary">
+            <ion-item (click)='moveToPath(path)' detail color ="warning" >
                 <ion-icon [name]='path.icon'></ion-icon>
                 
                 <ion-label style='margin-left: 10px;'>{{path.name}}</ion-label>
