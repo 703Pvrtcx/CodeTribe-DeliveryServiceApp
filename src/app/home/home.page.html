@@ -24,14 +24,30 @@
 </ion-segment>
 </ion-item>
 
-<ion-content color="dark" class="partcx">
+<ion-content color="dark" >
   <ion-fab vertical="top" horizontal="end" slot="fixed"  >
     <ion-fab-button (click)="openCart()" #cart color="warning">
       <div class="cart-length">{{ cartItemCount | async }}</div>
       <ion-icon name="cart" class="cart-icon">{{ cartItemCount | async }}</ion-icon>
     </ion-fab-button>
   </ion-fab>
-        <ion-grid >
+  
+    <div class="box">
+      <div class="card" *ngFor = "let item of result; index as productId" (click) = "onClick(item)"> 
+        <div class="name" >{{ item.name}}</div>
+        <img class="img" [src]="item.image">
+        <div class="price">{{item.price | currency:"R"}}</div>
+        <div class="desc" >{{ item.description}}</div>
+        <div class="add" vertical = "bottom" (click)="addItem(item)" >
+          <ion-button expand = "block" slot="end" color="dark" size = "small" fill = "outline" #cart>+
+            <ion-icon name="cart" class="cart-icon"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+      </div>
+
+
+        <!-- <ion-grid >
           <ion-row  >
             <ion-col  size="6" *ngFor = "let p of result;" class="partco" >
               <ion-card   > 
@@ -66,5 +82,5 @@
                 </ion-card>              
             </ion-col>
           </ion-row>
-        </ion-grid>
+        </ion-grid> -->
   </ion-content>

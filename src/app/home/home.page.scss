@@ -55,3 +55,59 @@ fab-button{
     --margin: 0px;
     justify-content:stretch;    
   }
+
+
+
+
+  .box {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width:100%;
+    background-color:  #000000; 
+    align-content: space-between;
+    padding: 10px;
+  }
+  
+  .card{ 
+    height: auto;
+    width: 48%;
+    text-align: center;
+    text-justify: auto;
+    background-color: darkgoldenrod;
+    //background-color: rgb(172, 172, 172);
+    border-width: 1px 1px 5px 5px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    margin: 2px;
+    border-radius: 15px 15px 15px 15px;
+    .img{
+      border-radius: 18px 18px 8px 8px;
+      height: 160px;
+      width: 100%;
+    }
+    .name{
+        color:rgb(3, 0, 0);
+        font-size: 16px;
+        font-weight: bold;
+    }
+  
+    .desc{
+      color:rgb(3, 0, 0);
+        font-size: 16px;color:rgb(3, 0, 0);
+        font-weight: bold;
+        text-align: left;
+        padding-left: 10px;
+    }
+    .price{
+      color:rgb(255, 0, 0);
+        font-size: 18px;
+        font-weight: bold;
+        text-align: left;
+        padding-left: 10px;
+      }
+  
+  
+  
+  }
+  

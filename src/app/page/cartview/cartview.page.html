@@ -14,7 +14,7 @@
 
  
     <ion-content>
-         <ion-list *ngIf = "cart.length > 0" >      
+         <!-- <ion-list *ngIf = "cart.length > 0" >      
                 <ion-item *ngFor="let p of cart"  class="user-item">       
                     <ion-avatar slot="start">
                       <img [src] ="p.image" >
@@ -56,8 +56,58 @@
                       </ion-col>
                     </ion-row>
                   </ion-grid>
-                  </ion-item>
-            </ion-list>
+                </ion-item>
+            </ion-list> -->
+
+            
+<div class="ion-padding">
+   
+  <ion-list >
+    <ion-item *ngFor="let p of cart" class="ion-text-wrap" class = "user-item" >
+     <ion-avatar>
+  <img [src] = "p.image" > 
+  </ion-avatar>
+      <ion-grid>
+        
+
+        <ion-row class="item-cart">
+          <ion-col size="8">
+            <b>{{ p.name }}</b>
+          </ion-col>
+          <ion-col size="4" class="ion-text-end">
+            {{ p.qty * p.price | currency:'R' }}
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="2" class="ion-align-self-center">
+            <ion-button color="medium" fill="clear" (click)="decreaseCartItem(p)">
+              <ion-icon name="remove-circle" slot="icon-only"></ion-icon>
+            </ion-button>
+          </ion-col>
+
+          <ion-col size="2" class="ion-align-self-center">
+            {{ p.qty }}
+          </ion-col>
+
+          <ion-col size="2" class="ion-align-self-center">
+            <ion-button color="medium" fill="clear" (click)="increaseCartItem(p)">
+              <ion-icon name="add-circle" slot="icon-only"></ion-icon>
+            </ion-button>
+          </ion-col>
+
+          <ion-col size="2" offset="4">
+            <ion-button color="medium" fill="clear" (click)="removeCartItem(p)">
+              <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        
+      </ion-grid>
+    </ion-item>
+   </ion-list>
+
+  </div>
+
 
         <ion-list   *ngIf = "cart.length < 1">
             <ion-item>
@@ -72,7 +122,69 @@
     </ion-content>
 
 
-    <ion-footer *ngIf = "cart.length > 0" >
+    
+    <ion-footer *ngIf = "cart.length > 0"  color="warning">
+
+
+      <ion-row >
+        <ion-col size="6">
+          <strong style="font-size: x-large;">  Total:</strong>
+        </ion-col>
+        <ion-col color="danger" size="6" class="ion-text-end" style="font-size: x-large;">
+            <strong>{{ getTotal() | currency:'R' }}</strong>
+        </ion-col>
+    </ion-row>
+
+
+        <div class="flex-item-center" >
+    
+           
+      
+          <ion-item class="user-item">
+              
+
+            <ion-card  class="user-item">
+            <ion-card-content>
+            
+              <ion-item  *ngIf = "savedAddresses.length < 1">
+                <ion-label>User Current Location</ion-label>
+                <ion-select (ionChange)= "onSelectChanged($event)" >
+                  <ion-select-option>
+                      Live Location
+                  </ion-select-option>
+              </ion-select>
+            </ion-item>
+
+              <ion-item  *ngIf = "savedAddresses.length > 0">
+                <ion-label>Select Address</ion-label>
+                    <ion-select (ionChange)= "onSelectChanged($event)" >
+                        <ion-select-option *ngFor= "let address of savedAddresses">
+                            {{address.name}}  
+                        </ion-select-option>
+                    </ion-select>
+            </ion-item>
+
+
+            <ion-item  *ngIf= "selectedAddress">
+                <ion-label>Payment </ion-label>
+                <ion-select (ionChange)= "onSelectChangedpay($event)" >
+                     <ion-select-option *ngFor= "let pay of payment">
+                      {{pay.name}} 
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-card-content>
+        <ion-card-content  color = "warning"  *ngIf = "selectedAddress && selectedPayment">
+                    <ion-button  color = "warning" expand="block" fill="outline" (click)= "placeOrder()">Checkout</ion-button>
+        </ion-card-content>
+            </ion-card>  
+          </ion-item>  
+        </div>
+    </ion-footer>
+
+                        
+
+    <!-- <ion-footer *ngIf = "cart.length > 0" >
         <div class="flex-item-center">
             <ion-item class="user-item">
                 <ion-grid>
@@ -124,6 +236,6 @@
             </ion-card>    
         </div>
 
-    </ion-footer>
+    </ion-footer> -->
 
                         

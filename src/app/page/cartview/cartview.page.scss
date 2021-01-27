@@ -1,7 +1,53 @@
+// ion-content{
+//   --background: rgb(139, 135, 135) url('./../../../assets/img/scones.jpg') no-repeat center center / cover;
+//   border-radius: 20px 20px 28px 28px;
+// }
+// ion-list{
+//         --background: linear-gradient(90deg, rgba(43,90,148,1) 0%,
+//          rgba(45,112,229,1) 35%, rgba(45,112,229,1) 100%);
+//            padding: 0;
+       
+// }
+// .user-item{
+//   border-radius: 20px 20px 28px 28px;
+//   opacity: 1;
+//   height: 20%;
+//   --background: linear-gradient(90deg, rgb(31, 57, 88) 0%,
+//   rgb(41, 62, 95) 35%, rgb(77, 137, 241) 100%);
+
+//   --color: var(--ion-color-light);
+// }
 ion-content{
   --background: rgb(139, 135, 135) url('./../../../assets/img/scones.jpg') no-repeat center center / cover;
   border-radius: 20px 20px 28px 28px;
 }
+.ion-footer{
+  --background: rgb(139, 135, 135) url('./../../../assets/img/scones.jpg') no-repeat center center / cover;
+ // border-radius: 20px 20px 28px 28px;
+}
+.item-cart{
+  height: 15px;
+}
+
+
+.box {
+  height: auto;
+  width:100%;
+  
+  background-color:  #000000; 
+  align-content: space-between;
+  padding: 10px;
+  .name{
+    text-align: start;
+  }
+  .qty{
+  text-align: center;
+  }
+  .price{
+    text-align: right;
+  }
+}
+
 // ion-list{
 //         --background: linear-gradient(90deg, rgba(43,90,148,1) 0%,
 //          rgba(45,112,229,1) 35%, rgba(45,112,229,1) 100%);
@@ -9,9 +55,10 @@ ion-content{
        
 // }
 .user-item{
-  border-radius: 20px 20px 28px 28px;
-  opacity: 1;
-  height: 20%;
+  border-radius: 35px 0px 28px 28px;
+  opacity: 0.8;
+  //height: 10%;
+  padding: 0;
   --background: linear-gradient(90deg, rgb(31, 57, 88) 0%,
   rgb(41, 62, 95) 35%, rgb(77, 137, 241) 100%);
 
