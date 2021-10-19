@@ -1,5 +1,5 @@
 import { TabsPage } from './page/menu/tabs/tabs.page';
-import { SidemenuPage } from './page/menu/sidemenu/sidemenu.page';
+// import { SidemenuPage } from './page/menu/sidemenu/sidemenu.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,16 +15,21 @@ import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { ContactPage } from './page/contact/contact.page';
+import { ServiceWorkerModule } from '@angular/service-worker';
 //var app = angular.module('Codetribe-task01', ['mapboxgl-directive']);
 @NgModule({
-  declarations: [AppComponent, SidemenuPage, TabsPage,ContactPage],
+  declarations: [AppComponent, 
+    // SidemenuPage, 
+    // TabsPage,
+    // ContactPage
+  ],
   entryComponents: [],
   exports: [
     FormsModule, ReactiveFormsModule,
   ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),   AngularFirestoreModule.enablePersistence(),   
-    AngularFireAuthModule, FormsModule, ReactiveFormsModule,
+    AngularFireAuthModule, FormsModule, ReactiveFormsModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     
     //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
  

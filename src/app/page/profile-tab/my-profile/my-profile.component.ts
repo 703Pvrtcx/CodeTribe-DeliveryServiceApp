@@ -34,7 +34,7 @@ addlocation: boolean;
       this.getuser();
     }
     searchaddress(){
-      this.router.navigateByUrl('sidemenu/tabs/contact');
+      //this.router.navigateByUrl('sidemenu/tabs/contact');
     }
   getuser(){
     let userID = firebase.auth().currentUser.uid.toString();

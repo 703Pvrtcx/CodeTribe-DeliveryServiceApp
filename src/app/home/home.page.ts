@@ -40,7 +40,7 @@ export class HomePage {
       this.cartList = storeItems;
       this.result = this.cartList;
     })
-    console.log(this.result);
+    console.log(this.cartList, " People");
   }
 async addItem(cartItem: CartItem) {
     this.cartServe.addItemToCart(cartItem);
